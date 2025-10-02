@@ -1,66 +1,44 @@
-# 🎬 Assignment: Bringing Web Pages to Life with CSS & JavaScript
+# Car Rental Management System 🚗
 
-In this assignment, you’ll create a visually dynamic and interactive experience by combining the beauty of **CSS3 animations** with the logic and power of **JavaScript functions**. By the end, you’ll have a mini interactive experience that not only looks good—but *feels* responsive and alive!
+A modern, responsive web application for managing car rentals with advanced CSS animations and JavaScript functionality.
 
----
+## 🌟 Overview
 
-## 🎨✨ Part 1: CSS3 Transitions and Animations for Dynamic Styling Effects
+This project is a comprehensive Car Rental Management System that demonstrates modern web development techniques including:
 
-Start by enhancing elements on your page using **CSS transitions** and **keyframe animations**. You can animate things like:
+- **CSS3 Transitions & Animations** - Smooth hover effects and keyframe animations
+- **JavaScript Functions** - Scope, parameters, return values, and DOM manipulation
+- **Responsive Design** - Mobile-first approach with flexible layouts
+- **Interactive UI** - Modal forms, dynamic updates, and real-time calculations
 
-* Button hover effects
-* Smooth fades, slides, or transforms
-* Continuous or triggered animations using `@keyframes`
+## ✨ Features
 
-**Goal:** Create a page that visually responds to user interaction and/or time-based triggers using only CSS.
+### 🎨 CSS3 Demonstrations
+- **8 Different Keyframe Animations** (slideDown, pulse, fadeInScale, modalSlideUp, etc.)
+- **Smooth Transitions** on buttons, cards, and interactive elements
+- **Hover Effects** with transform and box-shadow properties
+- **Responsive Grid Layouts** using CSS Grid and Flexbox
+- **Glass Morphism Effects** with backdrop-filter
+- **Custom Properties (CSS Variables)** for consistent theming
 
----
+### ⚡ JavaScript Demonstrations
+- **Function Scope** (Global vs Local variables)
+- **Parameters & Return Values** in rental calculations
+- **DOM Manipulation** - Dynamic content generation
+- **Event Handling** - Form submissions and user interactions
+- **Array Methods** - Filter, map, and data management
+- **Local Storage Simulation** for data persistence
 
-## 📚✨ Part 2: JavaScript Functions — Scope, Parameters & Return Values
+### 🚗 Car Rental Features
+- **Fleet Management** - Add, view, and manage vehicles
+- **Reservation System** - Book cars with date validation
+- **Real-time Calculations** - Rental costs with discounts
+- **Status Tracking** - Available, rented, maintenance
+- **Revenue Dashboard** - Financial overview and statistics
 
-Now it’s time to dive deeper into how **functions** actually work. In this section:
 
-* Write several custom functions that take in **parameters** and return **useful values**
-* Demonstrate understanding of **local vs global scope**
-* Show how functions can be reused to control animation, trigger DOM changes, or calculate values
+## 📥 Installation
 
-**Goal:** Show functional thinking by building small, reusable pieces of logic that clearly use parameters, return values, and demonstrate scope awareness.
-
----
-
-## 🎨🎬 Part 3: Combining CSS Animations with JavaScript
-
-Here’s the real magic—combine the two worlds!
-
-Use JavaScript to **trigger** CSS animations dynamically. Think along the lines of:
-
-* A button that animates a box when clicked
-* A card flip animation on hover or click
-* A loading animation that starts/stops based on user input
-* A popup/modal that slides in and fades out based on events
-
-**Goal:** Use JavaScript to **add/remove classes** or modify styles dynamically to trigger CSS animations. Bonus if you make it reusable with functions!
-
----
-
-## Deliverables
-
-Submit a project folder that includes:
-
-* `index.html` — Your structured content
-* `styles.css` — All your transitions and keyframe animations
-* `script.js` — Your functional logic demonstrating scope, parameters, return values, and animation triggers
-
-Each part of the assignment should be clearly labeled and commented to show your understanding.
-
----
-
-## Outcome
-
-You’ll be evaluated on:
-
-* Use of CSS transitions and animations to enhance UI
-* Quality and clarity of JavaScript functions (with parameters and return values)
-* Effective integration of CSS and JS for interactive effects
-* Code readability, modularity, and documentation
-* Creativity and user experience
+### Prerequisites
+- A modern web browser (Chrome, Firefox, Safari, Edge)
+- Basic understanding of HTML, CSS, and JavaScript
