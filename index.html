@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Rental Management System - CSS & JavaScript Assignment</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <span class="logo-icon">🚗</span>
+                <span>CarRental Pro</span>
+            </div>
+            <nav>
+                <a href="#" class="nav-link" onclick="showDashboard()">Dashboard</a>
+                <a href="#" class="nav-link" onclick="showCars()">Fleet</a>
+                <a href="#" class="nav-link" onclick="showReservations()">Reservations</a>
+                <a href="#" class="nav-link" onclick="showCustomers()">Customers</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <h1 class="dashboard-title">🎯 Car Rental Management Dashboard</h1>
+
+        <!-- Alert Messages -->
+        <div id="alertBox" class="alert"></div>
+
+        <!-- Statistics Section -->
+        <div class="stats-grid">
+            <div class="stat-card" onclick="animateCard(this)">
+                <div class="stat-icon">🚙</div>
+                <div class="stat-value" id="totalCars">0</div>
+                <div class="stat-label">Total Vehicles</div>
+            </div>
+            <div class="stat-card" onclick="animateCard(this)">
+                <div class="stat-icon">✅</div>
+                <div class="stat-value" id="availableCars">0</div>
+                <div class="stat-label">Available</div>
+            </div>
+            <div class="stat-card" onclick="animateCard(this)">
+                <div class="stat-icon">🔑</div>
+                <div class="stat-value" id="rentedCars">0</div>
+                <div class="stat-label">Currently Rented</div>
+            </div>
+            <div class="stat-card" onclick="animateCard(this)">
+                <div class="stat-icon">💰</div>
+                <div class="stat-value" id="totalRevenue">$0</div>
+                <div class="stat-label">Monthly Revenue</div>
+            </div>
+        </div>
+
+        <!-- Part 1: CSS Animations Demo -->
+        <section class="section">
+            <h2 class="section-title">📚 Part 1: CSS3 Transitions & Animations</h2>
+            <p style="margin-bottom: 20px; color: var(--text-light);">
+                This system demonstrates advanced CSS animations: hover effects, keyframe animations, 
+                smooth transitions, and responsive design patterns used throughout the interface.
+            </p>
+            <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+                <button class="btn btn-primary" onclick="demonstrateCSSAnimation()">
+                    ✨ Demo CSS Animation
+                </button>
+                <button class="btn btn-success">Hover for Effect</button>
+                <button class="btn btn-warning">Smooth Transition</button>
+            </div>
+        </section>
+
+        <!-- Part 2: JavaScript Functions Demo -->
+        <section class="section">
+            <h2 class="section-title">🔧 Part 2: JavaScript Functions (Scope, Parameters & Returns)</h2>
+            <p style="margin-bottom: 20px; color: var(--text-light);">
+                Demonstrating function parameters, return values, and variable scope with car rental calculations.
+            </p>
+            
+            <div class="form-group">
+                <label class="form-label">Daily Rate (KES):</label>
+                <input type="number" id="dailyRate" class="form-input" value="2500" placeholder="Enter daily rate">
+            </div>
+            <div class="form-group">
+                <label class="form-label">Number of Days:</label>
+                <input type="number" id="rentalDays" class="form-input" value="3" placeholder="Enter days">
+            </div>
+            <div class="form-group">
+                <label class="form-label">Discount (%):</label>
+                <input type="number" id="discount" class="form-input" value="10" placeholder="Enter discount">
+            </div>
+            
+            <button class="btn btn-primary" onclick="calculateRentalCost()">
+                🧮 Calculate Total Cost
+            </button>
+            
+            <div id="calculationResult" style="margin-top: 20px; font-size: 1.3em; font-weight: bold; color: var(--primary-color);"></div>
+        </section>
+
+        <!-- Part 3: Combined CSS + JavaScript -->
+        <section class="section">
+            <h2 class="section-title">🎨 Part 3: JavaScript + CSS Integration</h2>
+            <p style="margin-bottom: 20px; color: var(--text-light);">
+                JavaScript dynamically triggers CSS animations and manipulates the DOM.
+            </p>
+            
+            <div style="display: flex; gap: 15px; flex-wrap: wrap; margin-bottom: 20px;">
+                <button class="btn btn-primary" onclick="openNewReservationModal()">
+                    ➕ New Reservation
+                </button>
+                <button class="btn btn-success" onclick="refreshFleet()">
+                    🔄 Refresh Fleet
+                </button>
+                <button class="btn btn-warning" onclick="toggleLoadingSpinner()">
+                    ⏯️ Toggle Loader
+                </button>
+            </div>
+
+            <div class="spinner" id="loadingSpinner"></div>
+
+            <!-- Car Fleet Display -->
+            <div id="carFleetContainer">
+                <h3 style="margin-top: 30px; margin-bottom: 15px; color: var(--primary-color);">
+                    🚗 Available Fleet
+                </h3>
+                <div class="car-grid" id="carGrid"></div>
+            </div>
+        </section>
+
+        <!-- Reservations Section -->
+        <section class="section">
+            <h2 class="section-title">📋 Recent Reservations</h2>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Code</th>
+                            <th>Customer</th>
+                            <th>Vehicle</th>
+                            <th>Pickup Date</th>
+                            <th>Status</th>
+                            <th>Total</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="reservationsTable">
+                        <!-- Populated by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </div>
+
+    <!-- Modal: New Reservation -->
+    <div class="modal" id="reservationModal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeReservationModal()">&times;</span>
+            <h2 style="margin-bottom: 25px; color: var(--primary-color);">🎫 New Reservation</h2>
+            
+            <form id="reservationForm">
+                <div class="form-group">
+                    <label class="form-label">Customer Name:</label>
+                    <input type="text" id="customerName" class="form-input" placeholder="John Doe" required>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Email:</label>
+                    <input type="email" id="customerEmail" class="form-input" placeholder="john@example.com" required>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Select Vehicle:</label>
+                    <select id="vehicleSelect" class="form-input" required>
+                        <option value="">Choose a vehicle...</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Pickup Date:</label>
+                    <input type="date" id="pickupDate" class="form-input" required>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Return Date:</label>
+                    <input type="date" id="returnDate" class="form-input" required>
+                </div>
+                
+                <button type="submit" class="btn btn-primary" style="width: 100%;">
+                    ✅ Create Reservation
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
